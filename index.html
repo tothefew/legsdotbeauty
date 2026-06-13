@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Legs.Beauty</title>
+<title>极简导航站</title>
 <meta name="referrer" content="no-referrer">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -23,121 +23,82 @@ body{
 .header{margin-bottom:2rem}
 .header h1{font-size:1.8rem;font-weight:700}
 .header p{font-size:.9rem;margin-top:.3rem;opacity:.85}
-.nav-buttons{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:1.5rem;
-    margin:2rem 0;
-}
+.nav-buttons{display:flex;flex-direction:column;align-items:center;gap:1.5rem;margin:2rem 0}
 .nav-btn{
-    background:none;
-    border:none;
-    font-size:1.4rem;
-    font-weight:700;
-    cursor:pointer;
-    padding:.25rem .5rem;
-    display:inline-block;
-    text-decoration:underline wavy #ffd966;
-    text-underline-offset:8px;
-    transition:.2s;
-    color:inherit;
-    text-shadow:inherit;
+    background:none;border:none;font-size:1.4rem;font-weight:700;cursor:pointer;
+    padding:.25rem .5rem;display:inline-block;
+    text-decoration:underline wavy #ffd966;text-underline-offset:8px;
+    transition:.2s;color:inherit;text-shadow:inherit;
 }
-.nav-btn:active{
-    background:linear-gradient(120deg,#ffd96633,#ffd9661a);
-    transform:scale(.98);
-}
+.nav-btn:active{background:linear-gradient(120deg,#ffd96633,#ffd9661a);transform:scale(.98)}
 .nav-btn:hover{opacity:.85;transform:translateY(-2px)}
-.footer{
-    margin-top:2.5rem;
-    padding-top:1rem;
-    font-size:.75rem;
-    border-top:1px solid #fff3;
-    text-align:center;
-    opacity:.7;
-}
+.footer{margin-top:2.5rem;padding-top:1rem;font-size:.75rem;border-top:1px solid #fff3;text-align:center;opacity:.7}
 .footer-note{margin-top:.75rem;font-size:.7rem}
 .category-main-title{font-size:1.8rem;font-weight:700;margin-bottom:.75rem}
-.category-subtitle{
-    font-size:.9rem;
-    background:#8884;
-    backdrop-filter:blur(4px);
-    padding:.6rem 1rem;
-    border-radius:12px;
-    margin-bottom:2rem;
-    border:1px solid #fff2;
-}
+.category-subtitle{font-size:.9rem;background:#8884;backdrop-filter:blur(4px);padding:.6rem 1rem;border-radius:12px;margin-bottom:2rem;border:1px solid #fff2}
 .site{margin-bottom:1.8rem}
 .site-name{font-weight:600;font-size:1.1rem}
 .sep{opacity:.6;margin:0 .25rem}
-.site-url{
-    color:#ffd966;
-    text-decoration:none;
-    border-bottom:1px solid #ffd9666b;
-    word-break:break-all;
-}
+.site-url{color:#ffd966;text-decoration:none;border-bottom:1px solid #ffd9666b;word-break:break-all}
 .site-url:hover{border-bottom-color:#ffd966}
 .site-desc{font-size:.85rem;opacity:.75;margin-top:.3rem}
-.back-home{
-    display:inline-block;
-    margin-top:2rem;
-    color:#ffd966;
-    text-decoration:none;
-    font-size:.85rem;
-    border-bottom:1px solid transparent;
-}
+.back-home{display:inline-block;margin-top:2rem;color:#ffd966;text-decoration:none;font-size:.85rem;border-bottom:1px solid transparent}
 .back-home:hover{border-bottom-color:#ffd966}
 .hidden{display:none}
-@media (max-width:640px){
-    body{padding:.75rem}
-    .nav-btn{font-size:1.2rem}
-    .category-main-title{font-size:1.6rem}
-    .site-name{display:block;margin-bottom:.1rem}
-    .sep{display:none}
-}
+@media (max-width:640px){body{padding:.75rem}.nav-btn{font-size:1.2rem}.category-main-title{font-size:1.6rem}.site-name{display:block;margin-bottom:.1rem}.sep{display:none}}
 </style>
 </head>
 <body>
 <div class="nav">
     <div id=home>
-        <div class=header><h1>Domain.Name</h1><p>极简书签导航</p></div>
+        <div class=header><h1 id=siteTitle></h1><p id=siteDesc></p></div>
         <div class=nav-buttons id=btns></div>
         <div class=footer id=footer></div>
     </div>
     <div id=content></div>
 </div>
 <script>
-// ========== 修改内容只需改这个对象 ==========
+// ========== 所有可修改内容 ==========
 const C = {
-    bg: "https://files.seeusercontent.com/2026/04/04/bj1J/20260403_232855.jpg",                      // 背景图URL，留空则灰色
-    subText: "大概是个书签，放一些自己常用的网站，非推广。",                 // 首页按钮下方附加文字
-    footerNote: "",              // 页脚额外文字
+    // 首页主标题、副标题
+    siteTitle: "Legs.Beauty",
+    siteDesc: "大概是个书签，放一些自己常用的网站，非推广。",
+    // 背景图URL（留空则灰色）
+    bg: "https://files.seeusercontent.com/2026/04/04/bj1J/20260403_232855.jpg",
+    // 按钮下方附加文字（留空不显示）
+    subText: "",
+    // 页脚邮箱、日期、额外文字
+    email: "long@legs.beauty",
+    date: "2026/06/13",
+    footerNote: "",
+    // 分类配置（主标题、副标题）
     cats: {
-        domains: { title:"域名相关", desc:"域名注册、续费、转移价格查询及实用工具。" },
-        podcasts:{ title:"播客发现", desc:"无聊时可以听一听播客～" }
+        domains: { title: "域名相关", desc: "域名注册、续费、转移价格查询及实用工具。" },
+        podcasts: { title: "播客发现", desc: "无聊时可以听一听播客～" }
     },
+    // 导航按钮（id需与cats键名一致）
     btns: [
-        { name:"域名相关", id:"domains" },
-        { name:"播客发现", id:"podcasts" }
+        { name: "域名相关", id: "domains" },
+        { name: "播客发现", id: "podcasts" }
     ],
+    // 书签数据
     marks: {
         domains: [
-            { name:"哪煮米", url:"https://www.nazhumi.com/", desc:"去哪里煮米？域名注册续费转移价格查询平台。" },
-            { name:"米情局", url:"https://miqingju.com/", desc:"域名注册续费转移价格查询平台。" },
-            { name:"NameBeta", url:"https://namebeta.com/zh", desc:"域名注册比价&可用性检测。" },
-            { name:"tld-list", url:"https://tld-list.com/", desc:"价格监控等功能，部分收费。" }
+            { name: "哪煮米", url: "https://www.nazhumi.com/", desc: "去哪里煮米？域名注册续费转移价格查询平台。" },
+            { name: "米情局", url: "https://miqingju.com/", desc: "域名注册续费转移价格查询平台。" },
+            { name: "NameBeta", url: "https://namebeta.com/zh", desc: "域名注册比价&可用性检测。" },
+            { name: "tld-list", url: "https://tld-list.com/", desc: "价格监控等功能，部分收费。" }
         ],
         podcasts: [
-            { name:"播播鸡", url:"https://boboji.org/", desc:"中文播客榜" },
-            { name:"中文播客榜", url:"https://xyzrank.com/", desc:"fyfy.fm出品，发现中文播客。" }
+            { name: "播播鸡", url: "https://boboji.org/", desc: "中文播客榜" },
+            { name: "中文播客榜", url: "https://xyzrank.com/", desc: "fyfy.fm出品，发现中文播客。" }
         ]
-    },
-    email:"long@legs.beauty",
-    date:"2026/06/13"
+    }
 };
-// ============================================
+// =================================
 if(C.bg) document.body.style.setProperty('--bg',`url("${C.bg}")`);
+document.getElementById('siteTitle').innerText = C.siteTitle;
+document.getElementById('siteDesc').innerText = C.siteDesc;
 
 const home = document.getElementById('home'), content = document.getElementById('content');
 const btnsDiv = document.getElementById('btns'), footerDiv = document.getElementById('footer');
@@ -197,4 +158,4 @@ window.addEventListener('hashchange', route);
 route();
 </script>
 </body>
-</html>
+    </html>
