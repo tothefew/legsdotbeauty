@@ -128,7 +128,8 @@ const renderCat = id => {
         document.getElementById('backHome')?.addEventListener('click', e => { e.preventDefault(); location.hash = '#/'; route(); });
         return;
     }
-    let html = `<div class=category-main-title>${esc(cat.title)}</div><div class=category-subtitle>${esc(cat.desc)}</div>`;
+    let html = `<div class=category-main-title>${esc(cat.title)}</div>`;
+if(cat.desc) html += `<div class=category-subtitle>${esc(cat.desc)}</div>`;
     list.forEach(s => {
         const short = s.url.replace(/^https?:\/\//,'');
         html += `<div class=site><span class=site-name>${esc(s.name)}</span><span class=sep>·</span><a class=site-url href="${esc(s.url)}" target=_blank rel="noopener noreferrer nofollow">${esc(short)} ↗</a><div class=site-desc>${esc(s.desc)}</div></div>`;
