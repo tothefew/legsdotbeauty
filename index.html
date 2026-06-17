@@ -73,23 +73,25 @@ const C = {
     footerNote: "",
     // 分类配置（主标题、副标题）
     cats: {
-        domain_tool: { title: "域名相关", desc: "域名注册、续费、转移价格查询及实用工具。" },
+        domain_related: { title: "域名相关", desc: "域名注册、续费、转移价格查询及实用工具。" },
         podcast_finder: { title: "播客发现", desc: "" },
         blogroll: { title: "博客聚合", desc: "给博客聚合网站来个聚合嘿嘿嘿～希望能发现更多的优质博客！" }
     },
     // 导航按钮（id需与cats键名一致）
     btns: [
-        { name: "域名相关", id: "domain_tool" },
+        { name: "域名相关", id: "domain_related" },
         { name: "播客发现", id: "podcast_finder" },
         { name: "博客聚合", id: "blogroll" }
     ],
     // 书签数据
     marks: {
-        domain_tool: [
+        domain_related: [
+            { name: "大佬论坛", url: "https://www.dalao.net/", desc: "" },
             { name: "哪煮米", url: "https://www.nazhumi.com/", desc: "去哪里煮米？域名注册续费转移价格查询平台。" },
             { name: "米情局", url: "https://miqingju.com/", desc: "" },
             { name: "NameBeta", url: "https://namebeta.com/zh", desc: "域名注册比价&可用性检测。" },
-            { name: "tld-list", url: "https://tld-list.com/", desc: "提供价格监控等功能，部分收费。" }
+            { name: "tld-list", url: "https://tld-list.com/", desc: "提供价格监控等功能，部分收费。" },
+            { name: "TLDHub", url: "https://tldhub.com/", desc: "Cheapest Domain Registration Prices" }
         ],
         podcast_finder: [
             { name: "播播鸡", url: "https://boboji.org/", desc: "中文播客榜" },
@@ -121,7 +123,7 @@ const C = {
             { name: "壹個博客", url: "https://oneblog.net/", desc: "" },
             { name: "博客中心", url: "https://bokehub.com/home", desc: "" },
             { name: "浪海导航", url: "https://www.langhai.net/", desc: "" },
-            { name: "⚒ 劳动者独立技术综合博客志", url: "https://laodongzhe.cn/", desc: "" }
+            { name: "劳动者独立技术综合博客志", url: "https://laodongzhe.cn/", desc: "" }
         ]
     }
 };
