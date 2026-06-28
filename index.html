@@ -62,7 +62,7 @@ body{
 const C = {
     // 首页主标题、副标题
     siteTitle: "Legs.Beauty",
-    siteDesc: "大概是个书签，放一些自己常用的网站，非推广。",
+    siteDesc: "大概是个书签，放一些自己常用的网站，所有链接均不含AFF。",
     // 背景图URL（留空则灰色）
     bg: "https://files.seeusercontent.com/2026/04/04/bj1J/20260403_232855.jpg",
     // 按钮下方附加文字（留空不显示）
@@ -74,30 +74,30 @@ const C = {
     // 分类配置（主标题、副标题）
     cats: {
         domain_related: { title: "域名相关", desc: "域名注册、续费、转移价格查询及实用工具。" },
-        podcast_finder: { title: "播客发现", desc: "" },
+        chinese_podcast_finder: { title: "中文播客发现", desc: "听说听播客可能对情绪有调节作用！" },
         blogroll: { title: "博客聚合", desc: "给博客聚合网站来个聚合嘿嘿嘿～希望能发现更多的优质博客！" }
     },
     // 导航按钮（id需与cats键名一致）
     btns: [
         { name: "域名相关", id: "domain_related" },
-        { name: "播客发现", id: "podcast_finder" },
+        { name: "播客发现", id: "chinese_podcast_finder" },
         { name: "博客聚合", id: "blogroll" }
     ],
     // 书签数据
     marks: {
         domain_related: [
-            { name: "大佬论坛", url: "https://www.dalao.net/", desc: "" },
-            { name: "哪煮米", url: "https://www.nazhumi.com/", desc: "去哪里煮米？域名注册续费转移价格查询平台。" },
-            { name: "米情局", url: "https://miqingju.com/", desc: "" },
+            { name: "大佬论坛", url: "https://www.dalao.net/", desc: "全球域名论坛、域名交易与投资交流社区" },
+            { name: "哪煮米", url: "https://www.nazhumi.com/", desc: "去哪儿煮米？域名注册续费转移价格查询平台。" },
+            { name: "米情局", url: "https://miqingju.com/", desc: "域名比价平台" },
             { name: "NameBeta", url: "https://namebeta.com/zh", desc: "域名注册比价&可用性检测。" },
             { name: "tld-list", url: "https://tld-list.com/", desc: "提供价格监控等功能，部分收费。" },
             { name: "TLDHub", url: "https://tldhub.com/", desc: "Cheapest Domain Registration Prices" },
-            { name: "Archive.org", url: "https://archive.org/", desc: "" },
-            { name: "ExpiredDomains.net", url: "https://www.expireddomains.net/", desc: "" }
+            { name: "Archive.org", url: "https://archive.org/", desc: "域名历史网页留档查询" },
+            { name: "ExpiredDomains.net", url: "https://member.expireddomains.net/", desc: "过期域名提醒" }
         ],
-        podcast_finder: [
+        chinese_podcast_finder: [
             { name: "播播鸡", url: "https://boboji.org/", desc: "中文播客榜" },
-            { name: "中文播客榜", url: "https://xyzrank.com/", desc: "fyfy.fm出品，发现中文播客。" }
+            { name: "中文播客榜", url: "https://xyzrank.com/", desc: "枫言枫语fyfy.fm出品，发现中文播客。" }
         ],
         blogroll: [
             { name: "个站商店", url: "https://storeweb.cn/", desc: "一个精致的，带社交元素的个人网站发布平台，博客收录网站" },
